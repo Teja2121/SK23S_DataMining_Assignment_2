@@ -129,7 +129,7 @@ def question1():
     l2_cough_l_no_yes = 0
     l2_cough_l_no_no = 1
     l2_cough_l_no_tot = l2_cough_l_no_yes + l2_cough_l_no_no
-    entropy_cough_l2_l = -(((l2_cough_l_yes_tot/l2_l_tot) * (((l2_cough_l_yes_yes/l2_cough_l_yes_tot) * u.log2(l2_cough_l_yes_yes/l2_cough_l_yes_tot)) + ((l2_cough_l_yes_no/l2_cough_l_yes_tot) * 0))) + ((l2_cough_l_no_tot/l2_l_tot) * (((l2_cough_l_no_yes/l2_cough_l_no_tot) * 0) + ((l2_cough_l_no_no/l2_cough_l_no_tot) * u.log2(l2_cough_l_no_no/l2_cough_l_no_tot)))))
+    entropy_cough_l2_l = (((l2_cough_l_yes_tot/l2_l_tot) * (((l2_cough_l_yes_yes/l2_cough_l_yes_tot) * u.log2(l2_cough_l_yes_yes/l2_cough_l_yes_tot)) + ((l2_cough_l_yes_no/l2_cough_l_yes_tot) * 0))) + ((l2_cough_l_no_tot/l2_l_tot) * (((l2_cough_l_no_yes/l2_cough_l_no_tot) * 0) + ((l2_cough_l_no_no/l2_cough_l_no_tot) * u.log2(l2_cough_l_no_no/l2_cough_l_no_tot)))))
     print("1a - The entropy for cough at level 2 left is: " +str(entropy_cough_l2_l))
     info_gain_cough_l2_l = entropy_l2_l - entropy_cough_l2_l
     print("1a - The information gain for cough at level 2 left is: " +str(info_gain_cough_l2_l))
@@ -165,7 +165,7 @@ def question1():
     l2_radon_r_no_yes = 0
     l2_radon_r_no_no = 4
     l2_radon_r_no_tot = l2_radon_r_no_yes + l2_radon_r_no_no
-    entropy_radon_l2_r = -(((l2_radon_r_yes_tot/l2_r_tot) * (((l2_radon_r_yes_yes/l2_radon_r_yes_tot) * u.log2(l2_radon_r_yes_yes/l2_radon_r_yes_tot)) + ((l2_radon_r_yes_no/l2_radon_r_yes_tot) * 0))) + ((l2_radon_r_no_tot/l2_r_tot) * (((l2_radon_r_no_yes/l2_radon_r_no_tot) * 0) + ((l2_radon_r_no_no/l2_radon_r_no_tot) * u.log2(l2_radon_r_no_no/l2_radon_r_no_tot)))))
+    entropy_radon_l2_r = (((l2_radon_r_yes_tot/l2_r_tot) * (((l2_radon_r_yes_yes/l2_radon_r_yes_tot) * u.log2(l2_radon_r_yes_yes/l2_radon_r_yes_tot)) + ((l2_radon_r_yes_no/l2_radon_r_yes_tot) * 0))) + ((l2_radon_r_no_tot/l2_r_tot) * (((l2_radon_r_no_yes/l2_radon_r_no_tot) * 0) + ((l2_radon_r_no_no/l2_radon_r_no_tot) * u.log2(l2_radon_r_no_no/l2_radon_r_no_tot)))))
     print("1a - The entropy for radon at level 2 right is: " +str(entropy_radon_l2_r))
     info_gain_radon_l2_r = entropy_l2_r - entropy_radon_l2_r
     print("1a - The information gain for radon at level 2 right is: " +str(info_gain_radon_l2_r))
