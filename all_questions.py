@@ -300,13 +300,17 @@ def question2():
     # Use the Binary Tree structure to construct the tree
     # Answer is an instance of BinaryTree
     tree = u.BinaryTree("x <= 0.7")
-    A = tree.insert_left("y <= 10")
-    B = tree.insert_right("x <= 7.3")
-    # Four leaves
-    A.insert_left("y")
-    A.insert_right("n")
-    B.insert_left("n")
-    B.insert_right("y")
+    A = tree.insert_left("y <= 0.6")
+    B = tree.insert_right("y <= 0.3")
+    C = A.insert_right ("x <= 0.2")
+    A.insert_left("B")
+    B.insert_left("A")
+    B.insert_right("A")
+    C.insert_right("A")
+    D = C.insert_left("y <= 0.8")
+    D.insert_left("C")
+    D.insert_right("D")
+
 
     answer["(d) full decision tree"] = tree
     return answer
