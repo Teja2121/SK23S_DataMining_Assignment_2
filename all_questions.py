@@ -489,28 +489,161 @@ def question6():
     area_6_b = (0.6 * 0.5) - (0.3 * 0.2)
     area_6_tot = area_6_a + area_6_b
     
+    #Gini before split
+    gini_before_split = 1 - ((area_6_a**2) + (area_6_b**2))
+    
 
     #The potential splits can be done at x = 0.5, x = 0.2, y = 0.4, y = 0.7
-    #gini at x = 05
+
+    #gini at x = 0.5 level 1
+    split_x1_l_area = 0.5
+    split_x1_g_area = 0.5
+    area_x1_l_a = (0.5 * 0.4) + (0.2 * 0.3)
+    area_x1_l_b = (0.5 * 0.6) - (0.2 * 0.3)
+    area_x1_l = area_x1_l_a + area_x1_l_b
+    area_x1_g_a = 0.5
+    area_x1_g_b = 0
+    area_x1_g = area_x1_g_a + area_x1_g_b
+    gini_x1_l = (1 - (((area_x1_l_a/area_x1_l) **2) + ((area_x1_l_b/area_x1_l)**2)))
+    gini_x1_g = (1 - (((area_x1_g_a/area_x1_g)**2) + ((area_x1_g_b/area_x1_g)**2)))
+    gini_x1 = ((split_x1_l_area) * (gini_x1_l)) + ((split_x1_g_area) * (gini_x1_g))
+    gini_x1_gain = gini_before_split - gini_x1
+    print("6 - The gini for split at x <= 0.5 at level 1 is: "+str(gini_x1))
+    print("6 - The gain for split at x <= 0.5 at level 1 is: "+str(gini_x1_gain))
+
+    #gini at x = 0.2 level 1
+    split_x2_l_area = 0.2
+    split_x2_g_area = 0.8
+    area_x2_l_a = (0.2 * 0.4) + (0.2 * 0.3)
+    area_x2_l_b = (0.2 * 0.3)
+    area_x2_l = area_x2_l_a + area_x2_l_b
+    area_x2_g_a = (0.3 * 0.4) + (0.5 * 1.0)
+    area_x2_g_b = (0.3 * 0.6)
+    area_x2_g = area_x2_g_a + area_x2_g_b
+    gini_x2_l = (1 - (((area_x2_l_a/area_x2_l) **2) + ((area_x2_l_b/area_x2_l)**2)))
+    gini_x2_g = (1 - (((area_x2_g_a/area_x2_g)**2) + ((area_x2_g_b/area_x2_g)**2)))
+    gini_x2 = ((split_x2_l_area) * (gini_x2_l)) + ((split_x2_g_area) * (gini_x2_g))
+    gini_x2_gain = gini_before_split - gini_x2
+    print("6 - The gini for split at x <= 0.2 at level 1 is: "+str(gini_x2))
+    print("6 - The gain for split at x <= 0.2 at level 1 is: "+str(gini_x2_gain))
+
+    #gini at y = 0.4 level 1
+    split_y1_l_area = 0.4
+    split_y1_g_area = 0.6
+    area_y1_l_a = 0.4
+    area_y1_l_b = 0
+    area_y1_l = area_y1_l_a + area_y1_l_b
+    area_y1_g_a = (0.6 * 0.5) + (0.2 * 0.3)
+    area_y1_g_b = (0.6 * 0.5) - (0.3 * 0.2)
+    area_y1_g = area_y1_g_a + area_y1_g_b
+    gini_y1_l = (1 - (((area_y1_l_a/area_y1_l) **2) + ((area_y1_l_b/area_y1_l)**2)))
+    gini_y1_g = (1 - (((area_y1_g_a/area_y1_g)**2) + ((area_y1_g_b/area_y1_g)**2)))
+    gini_y1 = ((split_y1_l_area) * (gini_y1_l)) + ((split_y1_g_area) * (gini_y1_g))
+    gini_y1_gain = gini_before_split - gini_y1
+    print("6 - The gini for split at y <= 0.4 at level 1 is: "+str(gini_y1))
+    print("6 - The gain for split at y <= 0.4 at level 1 is: "+str(gini_y1_gain))
+
+    #gini at y = 0.7 level 1
+    split_y2_l_area = 0.7
+    split_y2_g_area = 0.3
+    area_y2_l_a = 0.4 + (0.3 * 0.5)
+    area_y2_l_b = (0.5 * 0.3)
+    area_y2_l = area_y2_l_a + area_y2_l_b
+    area_y2_g_a = (0.3 * 0.5) + (0.2 * 0.3)
+    area_y2_g_b = (0.3 * 0.3)
+    area_y2_g = area_y2_g_a + area_y2_g_b
+    gini_y2_l = (1 - (((area_y2_l_a/area_y2_l) **2) + ((area_y2_l_b/area_y2_l)**2)))
+    gini_y2_g = (1 - (((area_y2_g_a/area_y2_g)**2) + ((area_y2_g_b/area_y2_g)**2)))
+    gini_y2 = ((split_y2_l_area) * (gini_y2_l)) + ((split_y2_g_area) * (gini_y2_g))
+    gini_y2_gain = gini_before_split - gini_y2
+    print("6 - The gini for split at y <= 0.7 at level 1 is: "+str(gini_y2))
+    print("6 - The gain for split at y <= 0.7 at level 1 is: "+str(gini_y2_gain))
+
+    #so we select x<=0.5 for the first split
+
+    #now for 2nd-level, we have the choices of x<=0.2, y<=0.4, y<=0.7
+    # first gini of the node
+    area_after_split = 0.5
+    area_x3_a = (((0.5 * 0.4) + (0.2 * 0.3)) / area_after_split)
+    area_x3_b = (((0.5 * 0.6) - (0.2 * 0.3)) / area_after_split)
+    gini_after_split = (1 - ((area_x3_a**2) + (area_x3_b**2)))
+    
+    #gini at x = 0.2 at level 2
+    split_x3_l_area = 0.2/0.5
+    split_x3_g_area = 0.3/0.5
+    area_x3_l_a = (0.2 * 0.4) + (0.2 * 0.3)
+    area_x3_l_b = (0.2 * 0.3)
+    area_x3_l = area_x3_l_a + area_x3_l_b
+    area_x3_g_a = (0.3 * 0.4) 
+    area_x3_g_b = (0.3 * 0.6)
+    area_x3_g = area_x3_g_a + area_x3_g_b
+    gini_x3_l = (1 - (((area_x3_l_a/area_x3_l) **2) + ((area_x3_l_b/area_x3_l)**2)))
+    gini_x3_g = (1 - (((area_x3_g_a/area_x3_g)**2) + ((area_x3_g_b/area_x3_g)**2)))
+    gini_x3 = ((split_x3_l_area) * (gini_x3_l)) + ((split_x3_g_area) * (gini_x3_g))
+    gini_x3_gain = gini_after_split - gini_x3
+    print("6 - The gini for split at x <= 0.2 at level 2 is: "+str(gini_x3))
+    print("6 - The gain for split at x <= 0.2 at level 2 is: "+str(gini_x3_gain))
+
+    #gini at y = 0.4 at level 2
+    split_y3_l_area = 0.2/0.5
+    split_y3_g_area = 0.3/0.5
+    area_y3_l_a = 0.2
+    area_y3_l_b = 0
+    area_y3_l = area_y3_l_a + area_y3_l_b
+    area_y3_g_a = (0.2 * 0.3)
+    area_y3_g_b = (0.6 * 0.5) - (0.3 * 0.2)
+    area_y3_g = area_y3_g_a + area_y3_g_b
+    gini_y3_l = (1 - (((area_y3_l_a/area_y3_l) **2) + ((area_y3_l_b/area_y3_l)**2)))
+    gini_y3_g = (1 - (((area_y3_g_a/area_y3_g)**2) + ((area_y3_g_b/area_y3_g)**2)))
+    gini_y3 = ((split_y3_l_area) * (gini_y3_l)) + ((split_y3_g_area) * (gini_y3_g))
+    gini_y3_gain = gini_after_split - gini_y3
+    print("6 - The gini for split at y <= 0.4 at level 2 is: "+str(gini_y3))
+    print("6 - The gain for split at y <= 0.4 at level 2 is: "+str(gini_y3_gain))
+
+    #gini at y = 0.7 at level 2
+    split_y4_l_area = 0.35/0.5
+    split_y4_g_area = 0.15/0.5
+    area_y4_l_a = (0.4 * 0.5)
+    area_y4_l_b = (0.3 * 0.5)
+    area_y4_l = area_y4_l_a + area_y4_l_b
+    area_y4_g_a = (0.2 * 0.3)
+    area_y4_g_b = (0.3 * 0.3)
+    area_y4_g = area_y4_g_a + area_y4_g_b
+    gini_y4_l = (1 - (((area_y4_l_a/area_y4_l) **2) + ((area_y4_l_b/area_y4_l)**2)))
+    gini_y4_g = (1 - (((area_y4_g_a/area_y4_g)**2) + ((area_y4_g_b/area_y4_g)**2)))
+    gini_y4 = ((split_y4_l_area) * (gini_y4_l)) + ((split_y4_g_area) * (gini_y4_g))
+    gini_y4_gain = gini_after_split - gini_y4
+    print("6 - The gini for split at y <= 0.7 at level 2 is: "+str(gini_y4))
+    print("6 - The gain for split at y <= 0.7 at level 2 is: "+str(gini_y4_gain))
+
+    #so from this we select y <= 0.4 for the level 2 split as it has the most gain
 
     # value of the form "z <= float" where "z" is "x" or "y"
     #  and "float" is a floating point number (notice: <=)
     # The value could also be "A" or "B" if it is a leaf
-    answer["a, level 1"] = ""
-    answer["a, level 2, right"] =""
-    answer["a, level 2, left"] = ""
-    answer["a, level 3, left"] = ""
-    
-    answer["a, level 3, right"] = ""
+    answer["a, level 1"] = "x <= 0.5"
+    answer["a, level 2, right"] ="A"
+    answer["a, level 2, left"] = "y <= 0.4"
+    answer["a, level 3, left"] = "A"
+    answer["a, level 3, right"] = "B"
 
     # run each datum through the tree. Count the number of errors and divide by number of samples. .
     # Since we have areas: calculate the area that is misclassified (total area is unity)
     # float between 0 and 1
-    answer["b, expected error"] = 0.
+    misclassified_area = 0.2 * 0.3
+    total_area_6 = 1.0
+    expected_error = misclassified_area/total_area_6
+    print("6 - The expected error rate is: "+str(expected_error))
+    answer["b, expected error"] = 0.06 # Around 6%
 
     # Use u.BinaryTree to define the tree. Create your tree.
     # Replace "root node" by the proper node of the form "z <= float"
-    tree = u.BinaryTree("root note")
+    tree = u.BinaryTree("x <= 0.5")
+    x_lesser_left = tree.insert_left("y <= 0.4") 
+    tree.insert_right("A")
+    x_lesser_left.insert_left("A")
+    x_lesser_left.insert_right("B")
+    
 
     answer["c, tree"] = tree
 
