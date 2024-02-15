@@ -260,7 +260,7 @@ def question2():
     entropy_x_2_gain = entropy_area - entropy_x_2
     print("2b - The information gain for split x<= 0.2 is: " + str(entropy_x_2_gain))
 
-    answer["(b) x <= 0.7"] = 0.3557029418697566
+    answer["(b) x < 0.7"] = 0.3557029418697566
     #2-b for x < = 0.7
     area_x_7_l_a = (0.5 * 0.4)
     area_x_7_l_b = ((0.7 * 0.6) + (0.2 * 0.2))
@@ -277,7 +277,7 @@ def question2():
     entropy_x_7_gain = entropy_area - entropy_x_7
     print("2b - The information gain for split x<= 0.7 is: " + str(entropy_x_7_gain))
 
-    answer["(b) y <= 0.6"] = 0.34781842724338197
+    answer["(b) y < 0.6"] = 0.34781842724338197
     #2-b for y < = 0.6
     area_y_6_l_a = (0.3 * 0.3)
     area_y_6_l_b = (0.7 * 0.6) 
