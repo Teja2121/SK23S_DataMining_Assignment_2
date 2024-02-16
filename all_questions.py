@@ -294,24 +294,176 @@ def question2():
     entropy_y_6_gain = entropy_area - entropy_y_6
     print("2b - The information gain for split y<= 0.6 is: " + str(entropy_y_6_gain))
 
-    # choose one of 'x=0.2', 'x=0.7', or 'x=0.6'
+    # choose one of 'x=0.2', 'x=0.7', or 'y=0.6'
     answer["(c) attribute"] = "x=0.7"  
+
+    #2-b entropy at left after split x = 0.7
+
+
+    #2-b for x < = 0.2 at level 2 left
+    area_x1_2_l_a = 0
+    area_x1_2_l_b = (0.2 * 0.2) + (0.2 * 0.6) 
+    area_x1_2_l_c = (0.2 * 0.2)
+    area_x1_2_l_tot = area_x1_2_l_a + area_x1_2_l_b + area_x1_2_l_c
+    area_x1_2_g_a = (0.5 * 0.4)
+    area_x1_2_g_b = (0.5 * 0.6)
+    area_x1_2_g_c = 0
+    area_x1_2_g_tot = area_x1_2_g_a + area_x1_2_g_b + area_x1_2_g_c
+    area_x1_2_tot = area_x1_2_l_tot + area_x1_2_g_tot
+    entropy_x1_2_l = -(((area_x1_2_l_a/area_x1_2_l_tot) * 0) + ((area_x1_2_l_b/area_x1_2_l_tot) * (u.log2(area_x1_2_l_b/area_x1_2_l_tot))) + ((area_x1_2_l_c/area_x1_2_l_tot) * (u.log2(area_x1_2_l_c/area_x1_2_l_tot))))
+    entropy_x1_2_g = -(((area_x1_2_g_a/area_x1_2_g_tot) * (u.log2(area_x1_2_g_a/area_x1_2_g_tot))) + ((area_x1_2_g_b/area_x1_2_g_tot) * (u.log2(area_x1_2_g_b/area_x1_2_g_tot))) + ((area_x1_2_g_c/area_x1_2_g_tot) * 0))
+    entropy_x1_2 = ((area_x1_2_l_tot/area_x1_2_tot) * entropy_x1_2_l) + ((area_x1_2_g_tot/area_x1_2_tot) * entropy_x1_2_g) 
+    entropy_x1_2_gain = (entropy_x_7 - entropy_x1_2)
+    print("2b - The information gain for split x<= 0.2 at level 2 left is: " + str(entropy_x1_2_gain))
+
+    #2-b for y < = 0.6 at level 2 left
+    area_y1_6_l_a = 0
+    area_y1_6_l_b = (0.7 * 0.6) 
+    area_y1_6_l_c = 0
+    area_y1_6_l_tot = area_y1_6_l_a + area_y1_6_l_b + area_y1_6_l_c
+    area_y1_6_g_a = (0.5 * 0.4)
+    area_y1_6_g_b = 0.04
+    area_y1_6_g_c = 0.04
+    area_y1_6_g_tot = area_y1_6_g_a + area_y1_6_g_b + area_y1_6_g_c
+    area_y1_6_tot = area_y1_6_l_tot + area_y1_6_g_tot
+    entropy_y1_6_l = -(((area_y1_6_l_a/area_y1_6_l_tot) * 0) + ((area_y1_6_l_b/area_y1_6_l_tot) * (u.log2(area_y1_6_l_b/area_y1_6_l_tot))) + ((area_y1_6_l_c/area_y1_6_l_tot) * 0))
+    entropy_y1_6_g = -(((area_y1_6_g_a/area_y1_6_g_tot) * (u.log2(area_y1_6_g_a/area_y1_6_g_tot))) + ((area_y1_6_g_b/area_y1_6_g_tot) * (u.log2(area_y1_6_g_b/area_y1_6_g_tot))) + ((area_y1_6_g_c/area_y1_6_g_tot) * (u.log2(area_y1_6_g_c/area_y1_6_g_tot))))
+    entropy_y1_6 = ((area_y1_6_l_tot/area_y1_6_tot) * entropy_y1_6_l) + ((area_y1_6_g_tot/area_y1_6_tot) * entropy_y1_6_g) 
+    entropy_y1_6_gain = (entropy_x_7 - entropy_y1_6)
+    print("2b - The information gain for split y<= 0.6 at level 2 left is: " + str(entropy_y1_6_gain))
+
+    #2-b for y < = 0.3 at level 2 left
+    area_y1_3_l_a = 0
+    area_y1_3_l_b = (0.3 * 0.7) 
+    area_y1_3_l_c = 0
+    area_y1_3_l_tot = area_y1_3_l_a + area_y1_3_l_b + area_y1_3_l_c
+    area_y1_3_g_a = (0.5 * 0.4)
+    area_y1_3_g_b = (0.04 + (0.7 * 0.3))
+    area_y1_3_g_c = 0.04
+    area_y1_3_g_tot = area_y1_3_g_a + area_y1_3_g_b + area_y1_3_g_c
+    area_y1_3_tot = area_y1_3_l_tot + area_y1_3_g_tot
+    entropy_y1_3_l = -(((area_y1_3_l_a/area_y1_3_l_tot) * 0) + ((area_y1_3_l_b/area_y1_3_l_tot) * (u.log2(area_y1_3_l_b/area_y1_3_l_tot))) + ((area_y1_3_l_c/area_y1_3_l_tot) * 0))
+    entropy_y1_3_g = -(((area_y1_3_g_a/area_y1_3_g_tot) * (u.log2(area_y1_3_g_a/area_y1_3_g_tot))) + ((area_y1_3_g_b/area_y1_3_g_tot) * (u.log2(area_y1_3_g_b/area_y1_3_g_tot))) + ((area_y1_3_g_c/area_y1_3_g_tot) * (u.log2(area_y1_3_g_c/area_y1_3_g_tot))))
+    entropy_y1_3 = ((area_y1_3_l_tot/area_y1_6_tot) * entropy_y1_3_l) + ((area_y1_3_g_tot/area_y1_3_tot) * entropy_y1_3_g) 
+    entropy_y1_3_gain = (entropy_x_7 - entropy_y1_3)
+    print("2b - The information gain for split y<= 0.3 at level 2 left is: " + str(entropy_y1_3_gain))   
+
+    #2-b for y < = 0.8 at level 2 left
+    area_y1_3_l_a = (0.5 * 0.2)
+    area_y1_3_l_b = (0.6 * 0.7) 
+    area_y1_3_l_c = (0.2 * 0.2)
+    area_y1_3_l_tot = area_y1_3_l_a + area_y1_3_l_b + area_y1_3_l_c
+    area_y1_3_g_a = (0.5 * 0.2)
+    area_y1_3_g_b = (0.2 * 0.2)
+    area_y1_3_g_c = 0
+    area_y1_3_g_tot = area_y1_3_g_a + area_y1_3_g_b + area_y1_3_g_c
+    area_y1_3_tot = area_y1_3_l_tot + area_y1_3_g_tot
+    entropy_y1_3_l = -(((area_y1_3_l_a/area_y1_3_l_tot) * (u.log2(area_y1_3_l_a/area_y1_3_l_tot))) + ((area_y1_3_l_b/area_y1_3_l_tot) * (u.log2(area_y1_3_l_b/area_y1_3_l_tot))) + ((area_y1_3_l_c/area_y1_3_l_tot) * (u.log2(area_y1_3_l_c/area_y1_3_l_tot))))
+    entropy_y1_3_g = -(((area_y1_3_g_a/area_y1_3_g_tot) * (u.log2(area_y1_3_g_a/area_y1_3_g_tot))) + ((area_y1_3_g_b/area_y1_3_g_tot) * (u.log2(area_y1_3_g_b/area_y1_3_g_tot))) + ((area_y1_3_g_c/area_y1_3_g_tot) * 0))
+    entropy_y1_3 = ((area_y1_3_l_tot/area_y1_6_tot) * entropy_y1_3_l) + ((area_y1_3_g_tot/area_y1_3_tot) * entropy_y1_3_g) 
+    entropy_y1_3_gain = (entropy_x_7 - entropy_y1_3)
+    print("2b - The information gain for split y<= 0.8 at level 2 left is: " + str(entropy_y1_3_gain)) 
+
+    #2-b for x < =  0.2, y > 0.6 right level 3
+    area_y1_3_l_a = 0
+    area_y1_3_l_b = 0.04 
+    area_y1_3_l_c = 0.04
+    area_y1_3_l_tot = area_y1_3_l_a + area_y1_3_l_b + area_y1_3_l_c
+    area_y1_3_g_a = (0.5 * 0.4)
+    area_y1_3_g_b = 0
+    area_y1_3_g_c = 0
+    area_y1_3_g_tot = area_y1_3_g_a + area_y1_3_g_b + area_y1_3_g_c
+    area_y1_3_tot = area_y1_3_l_tot + area_y1_3_g_tot
+    entropy_y1_3_l = -(((area_y1_3_l_a/area_y1_3_l_tot) * 0) + ((area_y1_3_l_b/area_y1_3_l_tot) * (u.log2(area_y1_3_l_b/area_y1_3_l_tot))) + ((area_y1_3_l_c/area_y1_3_l_tot) * (u.log2(area_y1_3_l_c/area_y1_3_l_tot))))
+    entropy_y1_3_g = -(((area_y1_3_g_a/area_y1_3_g_tot) * (u.log2(area_y1_3_g_a/area_y1_3_g_tot))) + ((area_y1_3_g_b/area_y1_3_g_tot) * 0) + ((area_y1_3_g_c/area_y1_3_g_tot) * 0))
+    entropy_y1_3 = ((area_y1_3_l_tot/area_y1_6_tot) * entropy_y1_3_l) + ((area_y1_3_g_tot/area_y1_3_tot) * entropy_y1_3_g) 
+    entropy_y1_3_gain = (entropy_y1_6 - entropy_y1_3)
+    print("2b - The information gain for split x<= 0.2 at level 3 right is: " + str(entropy_y1_3_gain))
+
+    #2-b for y < =  0.8, y > 0.6 right level 3
+    area_y1_3_l_a = (0.5 * 0.2)
+    area_y1_3_l_b = 0
+    area_y1_3_l_c = 0.04
+    area_y1_3_l_tot = area_y1_3_l_a + area_y1_3_l_b + area_y1_3_l_c
+    area_y1_3_g_a = (0.5 * 0.2)
+    area_y1_3_g_b = 0.04
+    area_y1_3_g_c = 0
+    area_y1_3_g_tot = area_y1_3_g_a + area_y1_3_g_b + area_y1_3_g_c
+    area_y1_3_tot = area_y1_3_l_tot + area_y1_3_g_tot
+    entropy_y1_3_l = -(((area_y1_3_l_a/area_y1_3_l_tot) * (u.log2(area_y1_3_l_a/area_y1_3_l_tot))) + ((area_y1_3_l_b/area_y1_3_l_tot) * 0) + ((area_y1_3_l_c/area_y1_3_l_tot) * (u.log2(area_y1_3_l_c/area_y1_3_l_tot))))
+    entropy_y1_3_g = -(((area_y1_3_g_a/area_y1_3_g_tot) * (u.log2(area_y1_3_g_a/area_y1_3_g_tot))) + ((area_y1_3_g_b/area_y1_3_g_tot) * (u.log2(area_y1_3_g_a/area_y1_3_g_tot))) + ((area_y1_3_g_c/area_y1_3_g_tot) * 0))
+    entropy_y1_3 = ((area_y1_3_l_tot/area_y1_6_tot) * entropy_y1_3_l) + ((area_y1_3_g_tot/area_y1_3_tot) * entropy_y1_3_g) 
+    entropy_y1_3_gain = (entropy_y1_6 - entropy_y1_3)
+    print("2b - The information gain for split y<= 0.8 at level 3 right is: " + str(entropy_y1_3_gain))  
+
+    # We choose x < = 0.2 for level 3 right 
+
+    #2-b for y<0.6 at level 2 right
+    area_y2_3_l_a = 0.09
+    area_y2_3_l_b = 0 
+    area_y2_3_l_c = 0.09
+    area_y2_3_l_tot = area_y2_3_l_a + area_y2_3_l_b + area_y2_3_l_c
+    area_y2_3_g_a = (0.4 * 0.3)
+    area_y2_3_g_b = 0
+    area_y2_3_g_c = 0
+    area_y2_3_g_tot = area_y2_3_g_a + area_y2_3_g_b + area_y2_3_g_c
+    area_y2_3_tot = area_y2_3_l_tot + area_y2_3_g_tot
+    entropy_y2_3_l = -(((area_y2_3_l_a/area_y2_3_l_tot) * (u.log2(area_y2_3_l_a/area_y2_3_l_tot))) + ((area_y2_3_l_b/area_y2_3_l_tot) * 0) + ((area_y2_3_l_c/area_y2_3_l_tot) * (u.log2(area_y2_3_l_c/area_y2_3_l_tot))))
+    entropy_y2_3_g = -(((area_y2_3_g_a/area_y2_3_g_tot) * (u.log2(area_y2_3_g_a/area_y2_3_g_tot))) + ((area_y2_3_g_b/area_y2_3_g_tot) * 0) + ((area_y2_3_g_c/area_y2_3_g_tot) * 0))
+    entropy_y2_3 = ((area_y2_3_l_tot/area_y2_3_tot) * entropy_y2_3_l) + ((area_y2_3_g_tot/area_y2_3_tot) * entropy_y2_3_g) 
+    entropy_y2_3_gain = (entropy_x_7 - entropy_y2_3)
+    print("2b - The information gain for split y<= 0.6 at level 2 right is: " + str(entropy_y2_3_gain)) 
+
+    #2-b for y<0.3 at level 2 right
+    area_y2_3_l_a = 0.09
+    area_y2_3_l_b = 0 
+    area_y2_3_l_c = 0
+    area_y2_3_l_tot = area_y2_3_l_a + area_y2_3_l_b + area_y2_3_l_c
+    area_y2_3_g_a = (0.4 * 0.3)
+    area_y2_3_g_b = 0
+    area_y2_3_g_c = 0.09
+    area_y2_3_g_tot = area_y2_3_g_a + area_y2_3_g_b + area_y2_3_g_c
+    area_y2_3_tot = area_y2_3_l_tot + area_y2_3_g_tot
+    entropy_y2_3_l = -(((area_y2_3_l_a/area_y2_3_l_tot) * (u.log2(area_y2_3_l_a/area_y2_3_l_tot))) + ((area_y2_3_l_b/area_y2_3_l_tot) * 0) + ((area_y2_3_l_c/area_y2_3_l_tot) * 0))
+    entropy_y2_3_g = -(((area_y2_3_g_a/area_y2_3_g_tot) * (u.log2(area_y2_3_g_a/area_y2_3_g_tot))) + ((area_y2_3_g_b/area_y2_3_g_tot) * 0) + ((area_y2_3_g_c/area_y2_3_g_tot) * (u.log2(area_y2_3_g_c/area_y2_3_g_tot))))
+    entropy_y2_3 = ((area_y2_3_l_tot/area_y2_3_tot) * entropy_y2_3_l) + ((area_y2_3_g_tot/area_y2_3_tot) * entropy_y2_3_g) 
+    entropy_y2_3_gain = (entropy_x_7 - entropy_y2_3)
+    print("2b - The information gain for split y<= 0.3 at level 2 right is: " + str(entropy_y2_3_gain)) 
+
+    #2-b for y<0.8 at level 2 right
+    area_y2_3_l_a = (0.09 + (0.2 * 0.3))
+    area_y2_3_l_b = 0 
+    area_y2_3_l_c = 0.09
+    area_y2_3_l_tot = area_y2_3_l_a + area_y2_3_l_b + area_y2_3_l_c
+    area_y2_3_g_a = 0.06
+    area_y2_3_g_b = 0
+    area_y2_3_g_c = 0
+    area_y2_3_g_tot = area_y2_3_g_a + area_y2_3_g_b + area_y2_3_g_c
+    area_y2_3_tot = area_y2_3_l_tot + area_y2_3_g_tot
+    entropy_y2_3_l = -(((area_y2_3_l_a/area_y2_3_l_tot) * (u.log2(area_y2_3_l_a/area_y2_3_l_tot))) + ((area_y2_3_l_b/area_y2_3_l_tot) * 0) + ((area_y2_3_l_c/area_y2_3_l_tot) * (u.log2(area_y2_3_l_c/area_y2_3_l_tot))))
+    entropy_y2_3_g = -(((area_y2_3_g_a/area_y2_3_g_tot) * (u.log2(area_y2_3_g_a/area_y2_3_g_tot))) + ((area_y2_3_g_b/area_y2_3_g_tot) * 0) + ((area_y2_3_g_c/area_y2_3_g_tot) * 0))
+    entropy_y2_3 = ((area_y2_3_l_tot/area_y2_3_tot) * entropy_y2_3_l) + ((area_y2_3_g_tot/area_y2_3_tot) * entropy_y2_3_g) 
+    entropy_y2_3_gain = (entropy_x_7 - entropy_y2_3)
+    print("2b - The information gain for split y<= 0.8 at level 2 right is: " + str(entropy_y2_3_gain)) 
+
+    # we select y<= 0.6 for level 2 right and the left child to this is y <= 0.3
 
     # Use the Binary Tree structure to construct the tree
     # Answer is an instance of BinaryTree
     tree = u.BinaryTree("x <= 0.7")
     A = tree.insert_left("y <= 0.6")
-    B = tree.insert_right("y <= 0.3")
+    B = tree.insert_right("y <= 0.6")
     C = A.insert_right ("x <= 0.2")
-    A.insert_left("B")
-    B.insert_left("A")
-    B.insert_right("A")
-    C.insert_right("A")
     D = C.insert_left("y <= 0.8")
+    E = B.insert_left("y <= 0.3")
+    A.insert_left("B")
+    C.insert_right("A")
     D.insert_left("C")
-    D.insert_right("D")
-
-
+    D.insert_right("B")
+    B.insert_right("A")
+    E.insert_left("A")
+    E.insert_right("C")
+    
     answer["(d) full decision tree"] = tree
     return answer
 
